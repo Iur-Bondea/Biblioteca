@@ -1,0 +1,70 @@
+﻿@page
+@model Biblioteca.Pages.BorrowedBooksCrud.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Borrow Book</h1>
+
+<h4>BorrowedBooks</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="BorrowedBooks.PersonID" class="control-label">Person First Name</label>
+                <select asp-for="BorrowedBooks.PersonID" class="form-control" asp-items="ViewBag.PersonFirstName"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="BorrowedBooks.PersonID" class="control-label">Person Last Name</label>
+                <select asp-for="BorrowedBooks.PersonID" class="form-control" asp-items="ViewBag.PersonLastName"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="BorrowedBooks.EmployeeID" class="control-label">Employee First Name</label>
+                <select asp-for="BorrowedBooks.EmployeeID" class="form-control" asp-items="ViewBag.EmployeeFirstName"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="BorrowedBooks.EmployeeID" class="control-label">Employee Last Name</label>
+                <select asp-for="BorrowedBooks.EmployeeID" class="form-control" asp-items="ViewBag.EmployeeLastName"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="BorrowedBooks.BookID" class="control-label">Book Title</label>
+                <select asp-for="BorrowedBooks.BookID" class="form-control" asp-items="ViewBag.BookID"></select>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="BorrowedBooks.BorrowedDate" class="control-label"></label>
+                <input asp-for="BorrowedBooks.BorrowedDate" class="form-control" />
+                <span asp-validation-for="BorrowedBooks.BorrowedDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BorrowedBooks.ReturnDate" class="control-label"></label>
+                <input asp-for="BorrowedBooks.ReturnDate" class="form-control" />
+                <span asp-validation-for="BorrowedBooks.ReturnDate" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="BorrowedBooks.BookReturned" /> @Html.DisplayNameFor(model => model.BorrowedBooks.BookReturned)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="BorrowedBooks.Reviews" class="control-label"></label>
+                <textarea asp-for="BorrowedBooks.Reviews" class="form-control"> </textarea>
+                <span asp-validation-for="BorrowedBooks.Reviews" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
